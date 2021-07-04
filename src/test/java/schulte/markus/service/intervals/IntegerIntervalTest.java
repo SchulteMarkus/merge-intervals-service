@@ -6,11 +6,18 @@ import org.junit.jupiter.api.Test;
 class IntegerIntervalTest {
 
   @Test
-  void equals() {
-    final IntegerInterval integerInterval1 = new IntegerInterval(-13, 7);
-    final IntegerInterval integerInterval2 = new IntegerInterval(-13, 7);
+  void correctInterval() {
+    final var integerInterval = new IntegerInterval(-13, 7);
 
-    Assertions.assertNotSame(integerInterval1, integerInterval2);
-    Assertions.assertEquals(integerInterval1, integerInterval2);
+    Assertions.assertEquals(-13, integerInterval.start());
+    Assertions.assertEquals(7, integerInterval.end());
+  }
+
+  @Test
+  void intervalWithWrongOrder() {
+    final var integerInterval = new IntegerInterval(2, -2);
+
+    Assertions.assertEquals(-2, integerInterval.start());
+    Assertions.assertEquals(2, integerInterval.end());
   }
 }
