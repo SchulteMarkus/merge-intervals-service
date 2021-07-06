@@ -5,7 +5,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.LinkedList;
 import java.util.List;
+import javax.enterprise.context.ApplicationScoped;
 
+@ApplicationScoped
 class IntervalsMerger {
 
   /**

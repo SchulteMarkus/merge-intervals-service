@@ -61,7 +61,8 @@ class IntervalsMergerTest {
 
   @ParameterizedTest
   @MethodSource
-  void mergeIntervals(final List<IntegerInterval> intervals, final List<IntegerInterval> expected) {
-    Assertions.assertEquals(expected, intervalsMerger.merge(intervals));
+  void mergeIntervals(
+      final List<IntegerInterval> intervals, final List<IntegerInterval> mergedIntervals) {
+    Assertions.assertEquals(mergedIntervals, intervalsMerger.merge(intervals));
   }
 }
