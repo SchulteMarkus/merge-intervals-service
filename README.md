@@ -1,68 +1,34 @@
-# merge-intervals-service
-Service capable of merging given intervals.
+# Merge intervals service (proof of concept)
 
-This project uses Quarkus, the Supersonic Subatomic Java Framework.
+Service capable of merging given intervals. PoC, not intended for production use.
 
-If you want to learn more about Quarkus, please visit its website: https://quarkus.io/ .
+Imaging given intervals [25,30] [2,19] [14, 23] [4,8], which you want to merge to
+the intervals  [2,23] [25,30].
+
+This services provides an endpoint
+
+    POST /merge-intervals
+
+for exactly doing this.
 
 ## Running the application in dev mode
 
-You can run your application in dev mode that enables live coding using:
-```shell script
+- Prerequisite: JDK16
+
+```
+### Start (Quarkus) application
 ./gradlew quarkusDev
 ```
 
-> **_NOTE:_**  Quarkus now ships with a Dev UI, which is available in dev mode only at http://localhost:8080/q/dev/.
+> **_NOTE:_** Visit http://localhost:8080/q/swagger-ui for reading as well as using the API.
 
-## Packaging and running the application
+## Merge algorithm
 
-The application can be packaged using:
-```shell script
-./gradlew build
-```
-It produces the `quarkus-run.jar` file in the `build/quarkus-app/` directory.
-Be aware that it’s not an _über-jar_ as the dependencies are copied into the `build/quarkus-app/lib/` directory.
+If you are interested in the merge alogrithm, have a look at 
+[IntervalsMerger](src/main/java/service/intervals/IntervalsMerger.java).
 
-If you want to build an _über-jar_, execute the following command:
-```shell script
-./gradlew build -Dquarkus.package.type=uber-jar
-```
+## Further improvements
 
-The application is now runnable using `java -jar build/quarkus-app/quarkus-run.jar`.
-
-## Creating a native executable
-
-You can create a native executable using:
-```shell script
-./gradlew build -Dquarkus.package.type=native
-```
-
-Or, if you don't have GraalVM installed, you can run the native executable build in a container using:
-```shell script
-./gradlew build -Dquarkus.package.type=native -Dquarkus.native.container-build=true
-```
-
-You can then execute your native executable with: `./build/merge-intervals-service-1.0.0-SNAPSHOT-runner`
-
-If you want to learn more about building native executables, please consult https://quarkus.io/guides/gradle-tooling.
-
-## Related Guides
-
-- YAML Configuration ([guide](https://quarkus.io/guides/config#yaml)): Use YAML to configure your Quarkus application
-- RESTEasy JAX-RS ([guide](https://quarkus.io/guides/rest-json)): REST endpoint framework implementing JAX-RS and more
-
-## Provided Code
-
-### YAML Config
-
-Configure your application with YAML
-
-[Related guide section...](https://quarkus.io/guides/config-reference#configuration-examples)
-
-The Quarkus application configuration is located in `src/main/resources/application.yml`.
-
-### RESTEasy JAX-RS
-
-Easily start your RESTful Web Services
-
-[Related guide section...](https://quarkus.io/guides/getting-started#the-jax-rs-resources)
+This service is intended to be a proof of concept, not ready for production.
+Besides the existing open [issues](issues) there is still production rdy functionality missing
+such as user input validation, error handling, logging etc.
