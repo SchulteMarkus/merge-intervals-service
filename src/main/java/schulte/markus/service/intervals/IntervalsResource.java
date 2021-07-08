@@ -22,8 +22,9 @@ public class IntervalsResource {
       @RequestBody(
               content = {
                 @Content(
-                  mediaType = MediaType.APPLICATION_JSON,
-                  example = "[{\"start\":1,\"end\":2},{\"start\":0,\"end\":2},{\"start\":3,\"end\":5}]")
+                    mediaType = MediaType.APPLICATION_JSON,
+                    example =
+                        "[{\"start\":1,\"end\":2},{\"start\":0,\"end\":2},{\"start\":3,\"end\":5}]")
               })
           final List<IntegerInterval> intervals) {
     return intervalsMerger.merge(intervals);
