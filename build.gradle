@@ -1,37 +1,38 @@
 plugins {
-    id 'java'
-    id 'io.quarkus'
+  id 'java'
+  id 'io.quarkus'
 }
 
 repositories {
-    mavenCentral()
-    mavenLocal()
+  mavenCentral()
+  mavenLocal()
 }
 
 dependencies {
-    implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
-    implementation 'io.quarkus:quarkus-smallrye-openapi'
-    implementation 'io.quarkus:quarkus-jacoco'
-    implementation 'io.quarkus:quarkus-config-yaml'
-    implementation 'io.quarkus:quarkus-resteasy'
-    implementation 'io.quarkus:quarkus-arc'
-    testImplementation 'io.quarkus:quarkus-junit5'
-    testImplementation 'io.rest-assured:rest-assured'
+  implementation enforcedPlatform("${quarkusPlatformGroupId}:${quarkusPlatformArtifactId}:${quarkusPlatformVersion}")
+  implementation 'io.quarkus:quarkus-smallrye-openapi'
+  implementation 'io.quarkus:quarkus-jacoco'
+  implementation 'io.quarkus:quarkus-config-yaml'
+  implementation 'io.quarkus:quarkus-resteasy-jackson'
+  implementation 'io.quarkus:quarkus-arc'
+  testImplementation 'io.quarkus:quarkus-junit5'
+  testImplementation 'io.quarkus:quarkus-junit5-mockito'
+  testImplementation 'io.rest-assured:rest-assured'
 }
 
 group 'schulte.markus'
-version '1.0.0-SNAPSHOT'
+version '0.0.1-SNAPSHOT'
 
 java {
-    sourceCompatibility = JavaVersion.VERSION_16
-    targetCompatibility = JavaVersion.VERSION_16
+  sourceCompatibility = JavaVersion.VERSION_16
+  targetCompatibility = JavaVersion.VERSION_16
 }
 
 compileJava {
-    options.encoding = 'UTF-8'
-    options.compilerArgs << '-parameters'
+  options.encoding = 'UTF-8'
+  options.compilerArgs << '-parameters'
 }
 
 compileTestJava {
-    options.encoding = 'UTF-8'
+  options.encoding = 'UTF-8'
 }

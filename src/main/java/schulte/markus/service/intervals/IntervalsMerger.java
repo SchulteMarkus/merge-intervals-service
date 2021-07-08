@@ -8,15 +8,15 @@ import java.util.List;
 import javax.enterprise.context.ApplicationScoped;
 
 @ApplicationScoped
-class IntervalsMerger {
+public class IntervalsMerger {
 
   /**
    * Merge overlapping intervals, such as [1, 2], [8, 10], [1, 3] to [1, 3], [8, 10].
    *
    * <p>Basic idea of implementation is to first sort the possibly overlapping incoming intervals by
-   * start and merge afterwards. When the given intervals are sorted by start, the end values of two
-   * sequent intervals can be compared to decide if the intervals have to be merged or can be used
-   * both.
+   * start, and merge afterwards. When the given intervals are sorted by start, the end values of
+   * two sequent intervals can be compared to decide if the intervals have to be merged or can be
+   * used both.
    *
    * <p>Complexity is driven by sorting of given intervals, {@link List#sort(Comparator)} gives the
    * runtime and space complexity details.
